@@ -20,9 +20,9 @@ options = {
   trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
   tracking_frame = "imu",
-  published_frame = "random1",
-  odom_frame = "random2",
-  provide_odom_frame = false,
+  published_frame = "odom",
+  odom_frame = "odom",
+  provide_odom_frame = true,
   publish_frame_projected_to_2d = false,
   use_pose_extrapolator = true,
   use_odometry = true,
@@ -45,27 +45,5 @@ options = {
 
 MAP_BUILDER.use_trajectory_builder_2d = true
 TRAJECTORY_BUILDER_2D.num_accumulated_range_data = 1
-TRAJECTORY_BUILDER_2D.max_range = 15
-TRAJECTORY_BUILDER_2D.min_range = 0.2
-
-TRAJECTORY_BUILDER_2D.use_imu_data = false 
-TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
-
--- TRAJECTORY_BUILDER_2D.submaps.range_data_inserter.probability_grid_range_data_inserter.hit_probability = 0.51
--- TRAJECTORY_BUILDER_2D.submaps.range_data_inserter.probability_grid_range_data_inserter.miss_probability = 0.49
-
-TRAJECTORY_BUILDER_2D.submaps.grid_options_2d.resolution = 0.05
--- TRAJECTORY_BUILDER_2D.submaps.num_range_data = 90
--- TRAJECTORY_BUILDER_2D.missing_data_ray_length = 5.
-
-POSE_GRAPH.optimize_every_n_nodes = 2
--- POSE_GRAPH.constraint_builder.max_constraint_distance = 15
-
--- POSE_GRAPH.constraint_builder.fast_correlative_scan_matcher.linear_search_window = 7
--- POSE_GRAPH.constraint_builder.fast_correlative_scan_matcher.angular_search_window = math.rad(30.)
-POSE_GRAPH.optimization_problem.local_slam_pose_translation_weight =  10
-POSE_GRAPH.optimization_problem.local_slam_pose_rotation_weight = 10
-POSE_GRAPH.optimization_problem.odometry_translation_weight = 90--1e5
-POSE_GRAPH.optimization_problem.odometry_rotation_weight = 90 --1e5
-
+-- TRAJECTORY_BUILDER_2D.max_range = 10 
 return options
