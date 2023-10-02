@@ -1,7 +1,0 @@
-<launch>
-  <!-- Set the path to the map file -->
-  <arg name="map_file" default="$(find racer)/maps/map"/>
-  
-  <!-- Save the map to file -->
-  <node name="map_saver" pkg="map_server" type="map_saver" args="-f $(arg map_file)" output="screen"/>
-</launch>
